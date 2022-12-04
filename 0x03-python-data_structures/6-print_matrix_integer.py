@@ -1,4 +1,6 @@
 #!/usr/bin/pythton3
+
+
 def print_matrix_integer(matrix=[[]]):
     size = len(matrix[0])
     for i in matrix:
@@ -9,4 +11,4 @@ def print_matrix_integer(matrix=[[]]):
             else:
                 print("{:d} ".format(j), end="")
             col += 1
-        print()
+        print("")
