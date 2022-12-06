@@ -7,20 +7,21 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *temp, *prev;
-	listint_t *insert;
+	listint_t *temp, *prev, *insert;
 
 	insert = malloc(sizeof(listint_t));
 	if (insert == NULL)
-	{
-		printf("malloc faild\n");
 		return (NULL);
-	}
 	insert->n = number;
 	insert->next = NULL;
 	temp = (*head)->next;
 	prev = *head;
-	if (*head == NULL || (*head)->n > insert->n)
+	if (*head == NULL)
+	{
+		*head = insert;
+		return (*head);
+	}
+	if ((*head)->n > insert->n)
 	{
 		insert->next = *head;
 		*head = insert;
