@@ -8,7 +8,7 @@ class Square:
         """initialize the square
             Args:
                 size (int): size of the square
-                position (tuple): coordinates on the square
+                position (int, int): coordinates on the square
             """
         self.__size = size
         self.__position = position
@@ -50,6 +50,8 @@ class Square:
         if self.size == 0:
             print("")
         else:
+            for i in range(self.position[1]):
+                print("")
             for i in range(self.size):
                 for j in range(self.position[0]):
                     print(" ", end="")
