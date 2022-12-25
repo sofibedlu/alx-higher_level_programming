@@ -51,6 +51,8 @@ class Square:
         if self.__size == 0:
             print("")
         else:
+            for n in range(self.__position[1]):
+                print("")
             for i in range(self.__size):
                 for i in range(self.__position[0]):
                     print(" ", end="")
@@ -59,10 +61,11 @@ class Square:
                 print()
 
     def __str__(self):
-        """print the square with the character '#'"""
+        """define the print() representation of a square."""
         if self.__size == 0:
             return ("")
         else:
+            [print("") for i in range(self.__position[1])]
             for i in range(self.__size):
                 for j in range(self.__position[0]):
                     print(" ", end="")
