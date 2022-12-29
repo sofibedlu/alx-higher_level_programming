@@ -3,7 +3,14 @@
 
 
 def matrix_divided(matrix, div):
-    """divides all elements of a matrix"""
+    """divides all elements of a matrix
+
+    Args:
+        matrix (list): matrix(list of lists)
+        div (int, float): the number that divides each element of the lists
+    Returns:
+        return the new matrix after division
+    """
     new_matrix = []
     new_list = []
     i = 0
