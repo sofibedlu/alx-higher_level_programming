@@ -1,0 +1,30 @@
+#doctest for say_my_name()
+
+#prints full name of the user
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name('sofy', "bedlu")
+My name is sofy bedlu
+
+#names must be string
+
+>>> say_my_name('sofy', 78)
+Traceback (most recent call last):
+  ...
+TypeError: last_name must be a string
+>>> say_my_name([56,77,], 'bedlu')
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+>>> say_my_name(79)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+>>> say_my_name(12, 46)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+##
+>>> say_my_name('sofy') #doctest: +NORMALIZE_WHITESPACE
+My name is sofy 
