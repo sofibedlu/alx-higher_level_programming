@@ -8,38 +8,38 @@
 
 #all elements of the matrix must be list
 #all elements of the matrix elements must be integer or floats
->>> matrix_divided([[2, 4, 9], 'hello'], 4)
+>>> matrix_divided([[2, 4, 9], 'hello'], 4) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix_divided([[2, 5, 6], [4, 6, 'a']], 2)
+>>> matrix_divided([[2, 5, 6], [4, 6, 'a']], 2) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix_divided([(2, 5, 6), [4, 6, 2]], 2)
+>>> matrix_divided([(2, 5, 6), [4, 6, 2]], 2) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 #all row's of the matrix must have equal size:
 
->>> matrix_divided([[2, 5, 6], [4, 6], [4, 5, 6]], 2)
+>>> matrix_divided([[2, 5, 6], [4, 6], [4, 5, 6]], 2) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: Each row of the matrix must have the same size
 
 #div must be a number
 
->>> matrix_divided([[2, 4, 9]], 'cat')
+>>> matrix_divided([[2, 4, 9]], 'cat') # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: div must be a number
 
 #division by zero is not allowed:
 
->>> matrix_divided([[2, 5], [4, 6]], 0)
+>>> matrix_divided([[2, 5], [4, 6]], 0) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 ZeroDivisionError: division by zero

@@ -1,10 +1,38 @@
 #!/usr/bin/python3
-"""Module to find product of two matrix
+"""Module to find product of two matrix using the function defined
+    called matrix_mul()
 """
+
+
+def m_transpos(matrix):
+    """return transpose of the given matrix
+    """
+    m_t = []
+    row = []
+    for i in range(len(matrix[0])):
+        for j in range(len(matrix)):
+            row.append(matrix[j][i])
+        m_t.append(row)
+        row = []
+    return (m_t)
 
 
 def matrix_mul(m_a, m_b):
     """function that computes product of two matrix
+    Args:
+        m_a (list): the first matrix
+        m_b (list): the second natrix
+    Returns:
+        return product of the two matrix
+    Raises:
+        TypeError: if either of m_a or m_b is not a list
+        TypeError: if either of m_a or m_b is not list of lists
+        ValueError: if either of m_a or m_b is empty
+        TypeError: one elemet of those list of lists (m_a or m_b)
+                    is not an integer or float
+        TypeError: if m_a or m_b is not rectangle
+                    or they have different size of rows
+        ValueError: if m_a and m_b can't be multiplied
     """
     if not isinstance(m_a, list):
         raise TypeError('m_a must be a list')
@@ -27,16 +55,10 @@ def matrix_mul(m_a, m_b):
     if not all(len(m_b[0]) == len(m_b[i]) for i in range(len(m_b))):
         raise TypeError('each row of m_b must be of the same size')
 
-    m_trans = []
-    li = []
-    for i in range(len(m_b[0])):
-        for j in range(len(m_b)):
-            li.append(m_b[j][i])
-        m_trans.append(li)
-        li = []
-    """check for if it is not possible for the two matrix to multiplied
-    """
+    m_trans = m_transpos(m_b)
 
+    """check for if whether it is not possible for the two matrix to multiplied
+    """
     for i in range(len(m_a)):
         for j in range(len(m_trans)):
             if not len(m_a[i]) == len(m_trans[j]):

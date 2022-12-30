@@ -14,12 +14,25 @@ school?
 anyone
 
 # text must be string otherwise raise TypeError
->>> text_indentation(88)
+>>> text_indentation(88) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: text must be a string
 
->>> text_indentation(['hello', 'world'])
+>>> text_indentation(['hello', 'world']) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: text must be a string
+
+#texts with no the required delimeter('.', '?', ':')
+>>> text_indentation("my name is tomas muler")
+my name is tomas muler
+
+#empty text
+>>> text_indentation("  ")
+<BLANKLINE>
+>>> text_indentation("")
+>>> text_indentation("  \n")
+<BLANKLINE>
+>>> text_indentation("\n")
+<BLANKLINE>

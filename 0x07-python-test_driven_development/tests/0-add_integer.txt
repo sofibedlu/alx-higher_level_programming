@@ -19,17 +19,17 @@ for floating numbers first must be casted to integer:
 98
 
 for non numbers arguments:
->>> add_integer(3, 'hello')
+>>> add_integer(3, 'hello') # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: b must be an integer
 
->>> add_integer('car', 6)
+>>> add_integer('car', 6) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: a must be an integer
 
->>> add_integer(None)
+>>> add_integer(None) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: a must be an integer

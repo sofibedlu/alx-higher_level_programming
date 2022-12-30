@@ -1,0 +1,99 @@
+"""Doctest for 100-matrix_mul.py module"""
+#the function matrix_mul() computes the product of two matrix
+#it has very specific requirement on the input matrices and have different raises
+#acourdingly
+
+#let import the module for test
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+#regular inputs:
+
+>>> m_a = [[2, 4], [9, 4]]
+>>> m_b = [[1, 5], [3, 3]]
+>>> matrix_mul(m_a, m_b)
+[[14, 22], [21, 57]]
+
+>>> m_a = [[2, 4, -1], [9, 4, 2]]
+>>> m_b = [[1, 5], [3, 3], [-1, 4]]
+>>> matrix_mul(m_a, m_b)
+[[15, 18], [19, 65]]
+
+>>> matrix_mul([[2, 5.8], [0.7, 22]], [[2.4, 0.06], [12, 30]])
+[[74.39999999999999, 174.12], [265.68, 660.042]]
+
+#lets try some invalid input to the function
+
+#empty matrix:
+
+>>> matrix_mul([], []) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_a can't be empty
+
+>>> matrix_mul([[], []], [[], []]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_a can't be empty
+
+>>> matrix_mul([[1, 0], [3, 6]], [[], []])
+Traceback (most recent call last):
+  ...
+TypeError: m_b can't be empty
+
+#non-list input:
+
+>>> matrix_mul("hello world", [[1, 2, 3], [4, 5, 8]]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_a must be a list
+
+>>> matrix_mul([[1, 2, 3], [4, 5, 8]], ((12, 54, 3), (0, 8 ,-1))) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_b must be a list
+
+#in case of not list of lists input:
+
+>>> matrix_mul([[-3, 78, 0], "string"], [[1, 2], [8, 4], [0, 0]]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[-3, 78], [2, -4]], [[1, 2], [8, 4], (3, 8)]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_b must be a list of lists
+
+#check for elements of list of lists is not integer or float:
+
+>>> matrix_mul([[5, 0], ['g', 3]], [[7, 9], [(4), 'a']]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_a should contain only integers or floats
+
+>>> matrix_mul([[5, 0], [-8.6, 3]], [[7, 9], [(4), 'a']]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: m_b should contain only integers or floats
+
+#check for if the matrices have defferent size of rows:
+
+>>> matrix_mul([[1, 2], [5, 6, 8]], [[2, 2], [3, -7]]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: each row of m_a must be of the same size
+
+>>> matrix_mul([[1, 2], [6, 8]], [[2, 2], [3, -7], [1]]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+TypeError: each row of m_b must be of the same size
+
+#check for matrices that can not be multiplied:
+#(i.e) for two matrices to be multiplied the size of rows of the first matrix must be-
+#equal to the size of columns of the second matrices:
+
+>>> matrix_mul([[1.2, 4, 7], [4, 4, 1]], [[4, 5], [6, 0]]) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+ValueError: m_a and m_b can't be multiplied

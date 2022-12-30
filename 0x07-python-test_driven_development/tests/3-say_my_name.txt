@@ -8,19 +8,19 @@ My name is sofy bedlu
 
 #names must be string
 
->>> say_my_name('sofy', 78)
+>>> say_my_name('sofy', 78) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: last_name must be a string
->>> say_my_name([56,77,], 'bedlu')
+>>> say_my_name([56,77,], 'bedlu') # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: first_name must be a string
->>> say_my_name(79)
+>>> say_my_name(79) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: first_name must be a string
->>> say_my_name(12, 46)
+>>> say_my_name(12, 46) # doctest: +ELLIPSIS
 Traceback (most recent call last):
   ...
 TypeError: first_name must be a string
