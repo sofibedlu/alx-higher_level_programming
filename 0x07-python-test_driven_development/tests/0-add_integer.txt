@@ -1,4 +1,6 @@
-# doctest in help.text
+# doctest for 0-add_integer.py module
+
+#Usage: add_integer(num1, num2)...
 
 'add_integer()' returns the sum of its arguments. and the argument should be
 integers or float numbers
@@ -33,3 +35,19 @@ TypeError: a must be an integer
 Traceback (most recent call last):
   ...
 TypeError: a must be an integer
+
+#if we provide infinty it raises error:
+
+>>> add_integer(float('inf'), 9)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+#and also NaN values:
+
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer

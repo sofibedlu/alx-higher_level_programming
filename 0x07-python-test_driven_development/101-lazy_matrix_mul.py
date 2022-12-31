@@ -4,9 +4,10 @@
 """
 import numpy as np
 
+
 def lazy_matrix_mul(m_a, m_b):
     """ multiply two matrixes
-        
+
         Args:
             m_a (list): the first matrix
             m_b (list): the second matrix
