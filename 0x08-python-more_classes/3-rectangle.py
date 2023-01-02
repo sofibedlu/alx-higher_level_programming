@@ -52,14 +52,16 @@ class Rectangle:
 
     def __str__(self):
         """Return printable represetation of the rectangle
-            with the character '#'
+           represent rectangle with the character '#'
         """
         if self.__height == 0 or self.__width == 0:
-            return ""
+            return ("")
         R = []
         for i in range(self.__height):
             for j in range(self.__width):
                 R.append('#')
+            if i == self.__height - 1:
+                continue
             R.append('\n')
 
-        return "".join(R)
+        return ("".join(R))
