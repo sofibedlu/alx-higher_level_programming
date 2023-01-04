@@ -20,6 +20,7 @@ def text_indentation(text):
             x = 1
             continue
         if x == 1:
+            if i == " " or i == "   ":
+                continue
             x = 0
-            continue
         print("{}".format(i), end="")
