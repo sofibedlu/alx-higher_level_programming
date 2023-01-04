@@ -20,9 +20,9 @@ def matrix_divided(matrix, div):
     new_list = []
     i = 0
     if (not isinstance(matrix, list) or
-            not all(isinstance(l, list) for l in matrix)
-            or not all(isinstance(e, (int, float))
-                       for l in matrix for e in l)):
+            not all(isinstance(row, list) for row in matrix)
+            or not all(isinstance(el, (int, float))
+                       for row in matrix for el in row)):
         raise TypeError('matrix must be a matrix (list of lists)'
                         ' of integers/floats')
     if not all(len(matrix[0]) == len(matrix[i]) for i in range(len(matrix))):
@@ -31,9 +31,9 @@ def matrix_divided(matrix, div):
         raise TypeError('div must be a number')
     if div == 0:
         raise ZeroDivisionError('division by zero')
-    for l in matrix:
-        for e in l:
-            element = e / div
+    for row in matrix:
+        for el in row:
+            element = el / div
             new_list.append(round(element, 2))
         new_matrix.append(new_list)
         new_list = []
