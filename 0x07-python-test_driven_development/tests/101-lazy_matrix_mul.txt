@@ -19,35 +19,46 @@
 
 >>> print(lazy_matrix_mul("hello", [[5, 0.7], [5, 1]]))
 Traceback (most recent call last):
-TypeError: Cannot cast array data from dtype('float64') to dtype('<U32') according to the rule 'safe'
+ValueError: Scalar operands are not allowed, use '*' instead
+
+>>> print(lazy_matrix_mul([[5, 0.7], [5, 1]], "hello"))
+Traceback (most recent call last):
+ValueError: Scalar operands are not allowed, use '*' instead
 
 #not only the matrix should be list but also list of lists otherwise it raises Error:
 
 >>> print(lazy_matrix_mul([[2, 4], [1, 2]], [[5, 0.7], "car"]))
 Traceback (most recent call last):
-TypeError: can only concatenate list (not "str") to list
+ValueError: setting an array element with a sequence
 
 >>> print(lazy_matrix_mul([[1, 4], None], [[5, 0.7], "hello"]))
 Traceback (most recent call last):
-TypeError: can't multiply sequence by non-int of type 'list'
+TypeError: Object arrays are not currently supported
+
+#if the value of list of lists is not an integer or float it raise error:
+
+>>> print(lazy_matrix_mul([[5, 0.7], [5, 1]], [[5, "6"], [7, 8]]))
+Traceback (most recent call last):
+TypeError: invalid data type for einsum
+
+>>> print(lazy_matrix_mul([[5, "a"], [5, 1]], [[5, 6], [7, 8]]))
+Traceback (most recent call last):
+TypeError: invalid data type for einsum
+
+#if we pass matrixes with different size of rows it raise error:
+>>> print(lazy_matrix_mul([[5, 2, 4], [5, 1]], [[5, 6], [7, 8]]))
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence.
+
+>>> print(lazy_matrix_mul([[5, 4], [5, 1]], [[5, 6, 9], [7, 8]]))
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence.
 
 #if we provide empty matrix it raises error:
 
 >>> print(lazy_matrix_mul([[]], [[]]))
 Traceback (most recent call last):
 ValueError: shapes (1,0) and (1,0) not aligned: 0 (dim 1) != 1 (dim 0)
-
-#if one element of those list of lists is not an integer or a float it also raises error:
-
->>> print(lazy_matrix_mul([[1, 'a'], [5, 8]], [[1, 2], [4, 0]]))
-Traceback (most recent call last):
-ValueError: data type must provide an itemsize
-
-#if the matrix have different size of rows it raises error:
-
->>> print(lazy_matrix_mul([[1, 6], [5, 8,], [1, 2, 3]], [[1, 2], [4, 0]]))
-Traceback (most recent call last):
-ValueError: shapes (3,) and (2,2) not aligned: 3 (dim 0) != 2 (dim 0)
 
 #if we provides matrix that can't be multiplied raises error:
 
@@ -68,4 +79,4 @@ TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
 ::
 >>> print(lazy_matrix_mul([[1, 2]], None))
 Traceback (most recent call last):
-TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+TypeError: Object arrays are not currently supported
