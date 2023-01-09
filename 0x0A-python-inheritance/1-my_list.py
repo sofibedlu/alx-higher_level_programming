@@ -8,4 +8,6 @@ class MyList(list):
 
     def print_sorted(self):
         """print the list sorted"""
+        if not all(isinstance(el, int) for el in self):
+            raise TypeError('elements of the list must be integer')
         print(sorted(self))

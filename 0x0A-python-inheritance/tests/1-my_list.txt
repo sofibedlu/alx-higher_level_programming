@@ -1,0 +1,60 @@
+## doctest for '1-my_list' module ##
+## how to use '1-my_list'
+
+#the module contain a class called MyList and it inherite from list class
+#the class define a method that print the object(list) in sorted
+
+#first lets import the class:
+
+>>> MyList = __import__('1-my_list').MyList
+
+#create instance of MyList and use the the methods in the inherited class(list) to add element to our instance:
+
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(3)
+
+#print my_list
+
+>>> print(my_list)
+[2, 1, 4, 3]
+
+#to print the list in sorted way we can use print_sorted method in the class
+
+>>> my_list.print_sorted()
+[1, 2, 3, 4]
+
+#for negative numbers and positive:
+
+>>> my_list.append(-1)
+>>> my_list.append(-5)
+>>> my_list.append(-2)
+>>> my_list.append(-9)
+>>> my_list.print_sorted()
+[-9, -5, -2, -1, 1, 2, 3, 4]
+
+#for negative numbers:
+
+>>> my_list_1 = MyList()
+>>> my_list_1.append(-2)
+>>> my_list_1.append(-5)
+>>> my_list_1.append(-1)
+>>> my_list_1.append(-8)
+>>> my_list_1.print_sorted()
+[-8, -5, -2, -1]
+
+#if the list contain other than integer element it raise
+
+>>> my_list_1.append('a')
+
+>>> my_list_1.print_sorted()
+Traceback (most recent call last):
+TypeError: elements of the list must be integer
+
+#for empty list:
+
+>>> my_list_2 = MyList()
+>>> my_list_2.print_sorted()
+[]
