@@ -11,7 +11,7 @@ class BaseGeometry:
         """validates value"""
         if not isinstance(name, str):
             raise TypeError("name must be string")
-        if not isinstance(value, int):
+        if not type(value) is int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
