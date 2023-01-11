@@ -35,4 +35,3 @@ class Student:
         """
         if type(json) == dict and bool(json):
             self.__dict__ = json
-
