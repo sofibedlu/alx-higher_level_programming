@@ -15,8 +15,8 @@ class Student:
         Args:
         attrs (list): list of strings(keys to the dictionary)
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
+        if (isinstance(attrs, list) and
+                all(isinstance(ele, str) for ele in attrs)):
             dic = vars(self)
             new_dic = {}
             for key in attrs:
