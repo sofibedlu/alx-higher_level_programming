@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Student module"""
+"""Define a class Student"""
 
 
 class Student:
@@ -12,10 +12,11 @@ class Student:
 
     def to_json(self, attrs=None):
         """it retrieves a dictionary representation of a Student instance
-        Args (list): list of strings(keys to the dictionary)
+        Args:
+        attrs (list): list of strings(keys to the dictionary)
         """
-        if isinstance(attrs, list) and
-        all(isinstance(ele, str) for ele in attrs):
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
             dic = vars(self)
             new_dic = {}
             for key in attrs:
