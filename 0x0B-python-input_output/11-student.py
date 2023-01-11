@@ -33,5 +33,6 @@ class Student:
         Args:
             json (dict): dictionary object from json file
         """
-        if type(json) == dict:
+        if type(json) == dict and bool(json):
             self.__dict__ = json
+
