@@ -47,3 +47,26 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 >>> bg.integer_validator()
 Traceback (most recent call last):
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+#again if we don't pass an integer value ut raises error:
+
+>>> bg.integer_validator("name", (4,))
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+TypeError: age must be an integer
