@@ -11,7 +11,7 @@ class Base:
     def __init__(self, id=None):
         """initialize the instance
         Args:
-            id (int): id of an instances
+            id: id of an instances
         """
         if id is not None:
             self.id = id
@@ -21,7 +21,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """returns the JSON string representations of list_dictionaries
+        """returns the JSON string representations of list of dictionaries
         Args:
             list_dictionaries (list): list of dictinaries
         """
@@ -33,11 +33,11 @@ class Base:
     def save_to_file(cls, list_objs):
         """writes the JSON string representation of list of objects to file
         Args:
-            list_objs (list): list of instances who inherits of Base class
+            list_objs (list): list of instances that inherits of Base class
         """
         filename = cls.__name__ + '.json'
         with open(filename, 'w', encoding='utf-8') as f:
-            if list_objs is None:
+            if list_objs is None or list_objs == []:
                 f.write("[]")
             else:
                 list_o = []
