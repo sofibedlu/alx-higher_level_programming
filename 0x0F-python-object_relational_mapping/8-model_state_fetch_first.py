@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     row = session.query(State).first()
     if not row:
-        print("")
+        print("Nothing")
     else:
         print("{}: {}".format(row.id, row.name))
     session.close()
