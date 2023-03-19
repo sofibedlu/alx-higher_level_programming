@@ -14,12 +14,13 @@ if __name__ == "__main__":
                            passwd=argv[2], db=argv[3], charset='utf8')
     cur = conn.cursor()
     cur.execute("SELECT * FROM states\
-            WHERE name LIKE '{:s}'\
+            WHERE name = '{}'\
                 ORDER BY states.id ASC".format(argv[4]))
 
     query_re = cur.fetchall()
     for row in query_re:
-        print(row)
+        if row[1] == argv[4]:
+            print(row)
 
     cur.close()
     conn.close()
