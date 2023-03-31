@@ -10,8 +10,8 @@ if __name__ == "__main__":
             content = re.read()
             utf = content.decode('utf-8')
             print("Body response:")
-            print("    - type: {}".format(type(content)))
-            print("    - content: {}".format(content))
-            print("    - utf8 content: {}".format(utf))
+            print("\t- type: {}".format(type(content)))
+            print("\t- content: {}".format(content))
+            print("\t- utf8 content: {}".format(utf))
     except urllib.error.URLError as e:
         print(e.reason)
