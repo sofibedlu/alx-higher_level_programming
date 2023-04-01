@@ -15,9 +15,7 @@ if __name__ == "__main__":
     r = requests.post('http://0.0.0.0:5000/search_user', data)
     try:
         jre = r.json()
-        if not jre:
-            raise Exception
-        print("[{}] {}".format(jre.get('id'), jre.get('name')))
+        print("[{}] {}".format(jre['id'], jre['name']))
     except Exception:
         if not jre:
             print('No result')
