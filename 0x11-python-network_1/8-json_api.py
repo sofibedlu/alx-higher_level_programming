@@ -7,10 +7,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    try:
-        value = sys.argv[1]
-        data = {'q': value}
-    except Exception:
+    if len(sys.argv) == 2:
+        data = {'q': sys.argv[1]}
+    else:
         data = {'q': ""}
     r = requests.post('http://0.0.0.0:5000/search_user', data)
     try:
