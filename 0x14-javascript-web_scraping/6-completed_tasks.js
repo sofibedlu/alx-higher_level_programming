@@ -18,8 +18,10 @@ request(url, (err, response, body) => {
         task++;
       }
     }
-    obj[`${id}`] = task;
-    task = 0;
+    if (task !== 0) {
+      obj[`${id}`] = task;
+      task = 0;
+    }
   }
   console.log(obj);
 });
